@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Topics = ({ topics }) => (
+const Topics = ({ data }) => (
   <ul>
-    {topics.map(topic => (
+    {data.map(topic => (
       <li key={topic}>{topic}</li>
     ))}
   </ul>

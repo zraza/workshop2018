@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Attendees = ({ attendees }) => (
+const Attendees = ({ data }) => (
   <ul>
-    {attendees.map(attendee => (
+    {data.map(attendee => (
       <li key={attendee}>{attendee}</li>
     ))}
   </ul>
