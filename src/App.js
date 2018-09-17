@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Workshop } from './components';
+import { Workshop } from './containers';
 
 class App extends Component {
   render() {
