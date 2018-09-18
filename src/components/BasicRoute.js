@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link,withRouter } from 'react-router-dom';
-import { Container, List, ListItem, Heading } from './';
+import { Container, List, ListItem, Heading, Header } from './';
 import { WorkshopAttendees, WorkshopTopics } from '../containers';
 
 const Home = () => (
@@ -23,6 +23,7 @@ const Home = () => (
 const BasicRoute = () => (
   <Router>
     <React.Fragment>
+    <Header />
       <Route exact path="/" component={Home} />
       <Route path="/topics/:day" component={withRouter(WorkshopTopics)} />
       <Route path="/attendees" component={WorkshopAttendees} />

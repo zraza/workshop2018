@@ -5,3 +5,4 @@ export { default as Heading } from './Heading/Heading';
 export { default as List } from './List/List';
 export { default as ListItem } from './ListItem/ListItem';
 export { default as Button } from './Button/Button';
+export { default as Header } from './Header/Header';

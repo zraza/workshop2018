@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Heading, Topics } from '../../components';
+import { Comment } from '../';
 
 class Workshop extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Workshop extends React.Component {
       <Container>
         <Heading>Topics / Day {day}</Heading>
         <Topics data={data} handleProgressUpdate={this.handleProgressUpdate} />
+        <Comment />
       </Container>
     );
   }

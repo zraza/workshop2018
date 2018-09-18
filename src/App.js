@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { AuthProvider } from './contexts';
+
 import BasicRoute from './components/BasicRoute';
 
 class App extends Component {
   render() {
-    return <BasicRoute />;
+    return <AuthProvider><BasicRoute /></AuthProvider>;
   }
 }
 
