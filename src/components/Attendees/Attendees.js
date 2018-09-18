@@ -1,11 +1,12 @@
 import React from 'react';
+import {List, ListItem} from '../';
 
 const Attendees = ({ data }) => (
-  <ul>
+  <List>
     {data.map(attendee => (
-      <li key={attendee}>{attendee}</li>
+      <ListItem key={attendee}>{attendee}</ListItem>
     ))}
-  </ul>
+  </List>
 );
 
 export default Attendees;

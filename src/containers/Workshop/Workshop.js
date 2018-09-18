@@ -3,7 +3,7 @@ import { Container, Heading, Attendees, Topics } from '../../components';
 import { withData } from '../../hoc';
 
 
-const TopicsWithData = withData(Topics)(`/topics`);
+const TopicsWithData = withData(Topics)(`/topics-with-detail`);
 const AttendeesWithData = withData(Attendees)(`/attendees`);
 
 class Workshop extends React.Component {
@@ -17,7 +17,7 @@ class Workshop extends React.Component {
       <Container>
         <Heading>Workshop {year}</Heading>
         <h2>Topics</h2>
-        <TopicsWithData  />
+        <TopicsWithData />
         <h2>Attendees</h2>
         <AttendeesWithData />
       </Container>
