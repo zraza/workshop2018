@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Workshop } from './containers';
+import BasicRoute from './components/BasicRoute';
 
 class App extends Component {
   render() {
-    return <Workshop year="2018" />;
+    return <BasicRoute />;
   }
 }
 

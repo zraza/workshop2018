@@ -1,1 +1,2 @@
-export { default as Workshop } from './Workshop/Workshop';
+export { default as WorkshopAttendees } from './WorkshopAttendees/WorkshopAttendees';
+export { default as WorkshopTopics } from './WorkshopTopics/WorkshopTopics';

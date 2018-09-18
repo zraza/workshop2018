@@ -9,29 +9,9 @@ const progressToState = {
 };
 
 class Topics extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: props.data
-    };
-  }
-
-  async handleProgressUpdate(id, progress) {
-    const res = await axios.post(
-      `${process.env.REACT_APP_API_BASE}/topic/${id}`,
-      { progress }
-    );
-    const { data } = this.state;
-    this.setState({
-      data: data.map(row => {
-        if (row.id === res.data.id) return res.data;
-        return row;
-      })
-    });
-  }
 
   render() {
-    const { data } = this.state;
+    const { data, handleProgressUpdate } = this.props;
     return (
       <List>
         {data.map(({ id, progress, title }) => (
@@ -40,7 +20,7 @@ class Topics extends React.Component {
             {progress === 'pending' && (
               <Button
                 style={{ float: 'right' }}
-                onClick={() => this.handleProgressUpdate(id, 'started')}
+                onClick={() => handleProgressUpdate(id, 'started')}
               >
                 Start
               </Button>
@@ -48,7 +28,7 @@ class Topics extends React.Component {
             {progress === 'started' && (
               <Button
                 style={{ float: 'right' }}
-                onClick={() => this.handleProgressUpdate(id, 'completed')}
+                onClick={() => handleProgressUpdate(id, 'completed')}
               >
                 Mark completed
               </Button>
