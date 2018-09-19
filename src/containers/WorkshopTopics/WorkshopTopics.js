@@ -41,7 +41,7 @@ class Workshop extends React.Component {
       <Container>
         <Heading>Topics / Day {day}</Heading>
         <Topics data={data} handleProgressUpdate={this.handleProgressUpdate} />
-        <Comment />
+        <Comment day={day} />
       </Container>
     );
   }
