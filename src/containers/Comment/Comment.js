@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import { Heading, Button, List, ListItem } from '../../components';
-import { AuthConsumer } from '../../contexts';
 
 class Comment extends React.Component {
   constructor(props) {
@@ -42,6 +42,7 @@ class Comment extends React.Component {
 
   render() {
     const { comments, comment } = this.state;
+    const { auth, user, login, logout } = this.props;
     return (
       <React.Fragment>
         <Heading>Comments</Heading>
@@ -52,28 +53,33 @@ class Comment extends React.Component {
             ))}
           </List>
         )}
-        <AuthConsumer>
-          {({ auth, user, login }) => (
+
+        <React.Fragment>
+          {!auth && <Button onClick={login}>Login</Button>}
+          {auth && (
             <React.Fragment>
-              {!auth && <Button onClick={login}>Login</Button>}
-              {auth && (
-                <React.Fragment>
-                  <textarea
-                    name="comment"
-                    value={comment}
-                    style={{ width: '100%' }}
-                    placeholder={`Comment as ${user.name}`}
-                    onChange={this.handleOnChange}
-                  />
-                  <Button onClick={this.handlePost}>Post</Button>
-                </React.Fragment>
-              )}
+              <textarea
+                name="comment"
+                value={comment}
+                style={{ width: '100%' }}
+                placeholder={`Comment as ${user.name}`}
+                onChange={this.handleOnChange}
+              />
+              <Button onClick={this.handlePost}>Post</Button>
             </React.Fragment>
           )}
-        </AuthConsumer>
+        </React.Fragment>
       </React.Fragment>
     );
   }
 }
 
-export default Comment;
+export default connect(
+  
+  ({auth}) => {
+    return {
+    auth: auth.auth,
+    user: auth.user
+  };
+}
+)(Comment);
